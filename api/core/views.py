@@ -7,10 +7,15 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework import generics
+from rest_framework import viewsets 
 
-class TodoListAndCreate (generics.ListCreateAPIView):
+class TodoViewSet(viewsets.ModelViewSet):
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
+
+# class TodoListAndCreate (generics.ListCreateAPIView):
+#     queryset = Todo.objects.all()
+#     serializer_class = TodoSerializer
     
 # class TodoListAndCreate (APIView):
 #     def get (self, request):
@@ -38,9 +43,9 @@ class TodoListAndCreate (generics.ListCreateAPIView):
 #         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class TodoDetailChangeAndDelete (generics.RetrieveUpdateDestroyAPIView):
-    queryset = Todo.objects.all()
-    serializer_class = TodoSerializer
+# class TodoDetailChangeAndDelete (generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Todo.objects.all()
+#     serializer_class = TodoSerializer
 
 # class TodoDetailChangeAndDelete (APIView):
 #     def get_object(self, pk):
